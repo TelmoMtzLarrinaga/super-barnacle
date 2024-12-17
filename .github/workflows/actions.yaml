@@ -17,4 +17,4 @@ jobs:
           repository_owner: TelmoMtzLarrinaga
           repository_name: jubilant-octo-rotary-phone
           new_branch_name: sign/release-v1.0.0@66096563948c7d3f4dc2bce72e6cddc7a732e52304371ba0d20c5c3d155fad5d
-          ignore_branch_exits: true
+          ignore_branch_exists: true
