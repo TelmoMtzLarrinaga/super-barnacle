@@ -1,0 +1,23 @@
+name: Action test on Ubuntu
+
+on: [push, workflow_dispatch]
+
+jobs:
+  create-tuf-repo-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create new branch in TUF-Repository
+        uses: GuillaumeFalourd/create-other-repo-branch-action@main
+        with:
+          repository_owner: TelmoMtzLarrinaga
+          repository_name: jubilant-octo-rotary-phone
+          new_branch_name: sign
+          access_token: ${{ secrets.ACTIONS_PAT }}
+          ignore_branch_exists: true
+      - name: Checkout TUF-repository branch
+        uses: actions/checkout@v4
+        with:
+          repository: TelmoMtzLarrinaga/jubilant-octo-rotary-phone
+          ref: sign
+      - run: |
+          touch Helloworld.txt
