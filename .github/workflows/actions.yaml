@@ -3,16 +3,15 @@ name: 'Create Other Repo Branch Test'
 description: 'Attempt creating a branch on another repository'
 
 on:
-  pull_request_review:
-    types: [submitted]
+  push:
+    - main
 
 jobs:
   test-create-branch-default:
     runs-on: ubuntu-latest
     steps:
-      - name: create branch
-        if: github.event.review.state == 'approved'
         uses: GuillaumeFalourd/create-other-repo-branch-action@4aaae2f389943fd2448c07844a865be73d907a3f #v1.5
+        if: github.event.review.state == 'approved'
         with:
           repository_owner: TelmoMtzLarrinaga
           repository_name: jubilant-octo-rotary-phone
