@@ -3,17 +3,16 @@ name: 'Create Other Repo Branch Test'
 description: 'Attempt creating a branch on another repository'
 
 on:
-  pull_request:
+  push:
     branches:
-      - "sign/**"
-
+      - main
 
 jobs:
   test-create-branch-default:
     runs-on: ubuntu-latest
     steps:
       - name: create branch
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/sign/' 
         uses: GuillaumeFalourd/create-other-repo-branch-action@4aaae2f389943fd2448c07844a865be73d907a3f #v1.5
         with:
           repository_owner: TelmoMtzLarrinaga
