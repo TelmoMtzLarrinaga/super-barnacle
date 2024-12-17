@@ -4,9 +4,7 @@ description: 'Attempt creating a branch on another repository'
 
 on:
   pull_request_review:
-    type: [submitted]
-      branches:
-        - 'sign/**'
+    types: [submitted]
 
 jobs:
   test-create-branch-default:
